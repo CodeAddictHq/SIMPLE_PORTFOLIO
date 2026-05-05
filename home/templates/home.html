@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="hero">
+  <div class="eyebrow">Developer & Engineer</div>
+  <h1>Building things<br>for the <i>web</i></h1>
+  <p class="sub">I craft clean, thoughtful digital experiences. Welcome to my corner of the web.</p>
+  </div>
+
+<section id="projects">
+  <div class="label">Projects</div>
+  <h2>Heres all</h2>
+  <div class="grid" id="projectGrid">
+
+    <div class="card">
+      <div class="thumb">🛠</div>
+      <div class="card-body">
+        <h3>Projects</h3>
+        <p>Click to see all the python projects</p>
+        <a href="/projects" class="card-link">projects →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb">🛠️</div>
+      <div class="card-body">
+        <h3>About</h3>
+        <p>Short description of what this does and why it matters.</p>
+        <a href="/about" class="card-link">about →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb">🎨</div>
+      <div class="card-body">
+        <h3>contacts</h3>
+        <p>Short description of what this does and why it matters.</p>
+        <a href="/contacts" class="card-link">contacts →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

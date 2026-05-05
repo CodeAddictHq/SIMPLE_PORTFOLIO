@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}Projects{% endblock %}
+{% block main %}
+
+<div class="hero">
+  <div class="eyebrow">Developer & Engineer</div>
+  <h1>Building things<br>for the <i>web</i></h1>
+  <p class="sub">I craft clean, thoughtful digital experiences. Welcome to my corner of the web.</p>
+  <div class="cta"></div>
+</div>
+<section id="projects">
+  <div class="label">Projects</div>
+  <h2>Heres all</h2>
+  <div class="grid" id="projectGrid">
+{% if not projects %}
+    <div class="card">
+      <div class="thumb">🚀</div>
+      <div class="card-body">
+        <h3>Python</h3>
+        <p>Click to see all the python projects</p>
+        <a href="/projects/?type=py" class="card-link">Python →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb">🛠️</div>
+      <div class="card-body">
+        <h3>js</h3>
+        <p>Short description of what this does and why it matters.</p>
+        <a href="/projects/?type=js" class="card-link">View →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb">🎨</div>
+      <div class="card-body">
+        <h3>Comb</h3>
+        <p>Short description of what this does and why it matters.</p>
+        <a href="/projects/?type=comb" class="card-link">View →</a>
+      </div>
+    </div>
+{% elif projects %}
+{% for project in projects %}
+    <div class="card">
+      <div class="thumb">🛠️</div>
+      <div class="card-body">
+        <h3>{{project.title}}</h3>
+        <p>{{project.detail}}</p>
+        <a href="/projects/{{project.slug}}" class="card-link">View →</a>
+      </div>
+    </div>
+{% endfor %}
+{% endif %}
+
+  </div>
+</section>
+
+{% endblock %}

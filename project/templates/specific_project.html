@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}Projects{% endblock %}
+{% block main %}
+
+<div class="hero">
+  <div class="eyebrow">Developer & Engineer</div>
+  <h1>Building things<br>for the <i>web</i></h1>
+  <p class="sub">I craft clean, thoughtful digital experiences. Welcome to my corner of the web.</p>
+  <div class="cta"></div>
+</div>
+<section id="projects">
+  <div class="label">Projects</div>
+  <h2>Heres all</h2>
+  <div class="grid" id="projectGrid">
+
+    <div class="card">
+      <div class="thumb">🛠</div>
+      <div class="card-body">
+        <h3>run</h3>
+        <p>Click to see all the python projects</p>
+        <a href="/projects/?type=py" class="card-link">Run →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb">🛠️</div>
+      <div class="card-body">
+        <h3>Code</h3>
+        <p>Short description of what this does and why it matters.</p>
+        <a href="/projects/?type=js" class="card-link">Code →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb">🎨</div>
+      <div class="card-body">
+        <h3>About</h3>
+        <p>Short description of what this does and why it matters.</p>
+        <a href="/projects/?type=comb" class="card-link">about →</a>
+      </div>
+    </div>
+  </div>
+</section>
+<div id="comments">
+  {% for comment in comments %}
+   {% if comment.body%}
+    <div class="comment">
+      <div class="card-body">
+        <div id="comment-header">
+          <h3>{{comment.author}}</h3>
+          {% if user.is_authenticated %}
+            <a href="/projects/{{project.slug}}/comment/{{comment.id}}/edit"id="editbtn"class="comment-buttons">EDIT</a>
+            <a href="/projects/{{project.slug}}/comment/{{comment.id}}/delete"class="comment-buttons">DELETE</a>
+          {% endif %}
+        </div>
+        <div id="comment-body">
+          <p>{{comment.body}}</p>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  {% endfor %}
+
+
+
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block main %}
+{% if messages %}
+    {% for message in messages %}
+        <div style="
+            padding:10px;
+            margin:10px auto;
+            max-width:320px;
+            border-radius:5px;
+            border:1px solid #ccc;
+            background-color:#f9f9f9;
+            color:#333;
+            text-align:center;
+        ">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+<form method="POST"
+      style="max-width:500px; margin:20px auto; padding:15px; border:1px solid #ddd; border-radius:10px; font-family:Arial;">
+    
+    {% csrf_token %}
+
+    <h3 style="text-align:center; margin-bottom:10px;">Add Comment</h3>
+    <input name="username" readonly value="{{username}}">
+    <input name="project" readonly value="{{project.title}}">
+    <input name="slug" hidden value="{{project.slug}}">
+
+    <textarea name="body" required
+        placeholder="Write your comment..."
+        style="width:100%; padding:10px; border:1px solid #ccc; border-radius:5px; margin-bottom:10px; min-height:80px;"></textarea>
+
+    <button type="submit"
+        style="width:100%; padding:10px; background:black; color:white; border:none; border-radius:5px; cursor:pointer;">
+        Post Comment
+    </button>
+</form>
+
+{% endblock %}

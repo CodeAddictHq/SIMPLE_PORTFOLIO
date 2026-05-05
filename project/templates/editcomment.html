@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<form method="POST"
+      style="max-width:500px; margin:20px auto; padding:15px; border:1px solid #ddd; border-radius:10px; font-family:Arial;">
+    
+    {% csrf_token %}
+
+    <h3 style="text-align:center; margin-bottom:10px;">Edit Comment</h3>
+    <input name="username" readonly value="{{username}}">
+    <input name="project" hidden readonly value="{{project.title}}">
+    <input name="slug" hidden value="{{project.slug}}">
+
+    <input value="{{comment.body}}" name="body" required
+        placeholder="Write your comment..."
+        style="width:100%; padding:10px; border:1px solid #ccc; border-radius:5px; margin-bottom:10px; min-height:80px;"></input>
+
+    <button type="submit"
+        style="width:100%; padding:10px; background:black; color:white; border:none; border-radius:5px; cursor:pointer;">
+        Post Comment
+    </button>
+</form>
+
+{% endblock %}

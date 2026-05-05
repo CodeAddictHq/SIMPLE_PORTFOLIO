@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Adibs.weeb</title>
+<style></style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="#">Adibs<span>.weeb</span></a>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="eyebrow">Developer & Engineer</div>
+  <h1>Building things<br>for the <i>web</i></h1>
+  <p class="sub">I craft clean, thoughtful digital experiences. Welcome to my corner of the web.</p>
+  <div class="cta">
+    <a href="#projects" class="btn btn-fill">View Projects →</a>
+    <a href="#contact" class="btn btn-line">Get in Touch</a>
+  </div>
+</div>
+
+<section id="about">
+  <div class="label">About</div>
+  <h2>Code with purpose.</h2>
+  <p class="about-text">Hi! I'm Adibs — a developer who loves turning ideas into well-built software. I focus on clean code and interfaces that feel good to use. When I'm not coding, I'm probably watching anime.</p>
+  <div class="tags">
+    <span class="tag">JavaScript</span>
+    <span class="tag">React</span>
+    <span class="tag">Node.js</span>
+    <span class="tag">Python</span>
+    <span class="tag">PostgreSQL</span>
+    <span class="tag">Git</span>
+    <span class="tag">Docker</span>
+    <span class="tag">HTML & CSS</span>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="label">Projects</div>
+  <h2>Things I've built.</h2>
+  <div class="grid" id="projectGrid">
+
+    <div class="card">
+      <div class="thumb">🚀</div>
+      <div class="card-body">
+        <h3>Project One</h3>
+        <p>Short description of what this does and why it matters.</p>
+        <a href="#" class="card-link">View →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb">🛠️</div>
+      <div class="card-body">
+        <h3>Project Two</h3>
+        <p>Short description of what this does and why it matters.</p>
+        <a href="#" class="card-link">View →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb">🎨</div>
+      <div class="card-body">
+        <h3>Project Three</h3>
+        <p>Short description of what this does and why it matters.</p>
+        <a href="#" class="card-link">View →</a>
+      </div>
+    </div>
+
+    <div class="card upload-card" onclick="document.getElementById('fi').click()">
+      <div style="font-size:1.8rem">＋</div>
+      <p>Upload a project</p>
+      <input id="fi" type="file" accept="image/*" style="display:none" onchange="addProject(event)"/>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact">
+  <div class="label">Contact</div>
+  <h2>Let's work together.</h2>
+  <div class="contact-links">
+    <a href="mailto:hello@adibs.weeb" class="clink">✉ hello@adibs.weeb</a>
+    <a href="https://github.com/" target="_blank" class="clink">⌥ github.com/adibsweeb</a>
+    <a href="https://linkedin.com/" target="_blank" class="clink">in linkedin.com/in/adibsweeb</a>
+  </div>
+</section>
+
+<footer>© 2026 Adibs.weeb — Built with ♥ and coffee</footer>
+
+<script>
+function addProject(e){
+  const file=e.target.files[0];if(!file)return;
+  const r=new FileReader();
+  r.onload=ev=>{
+    const card=document.createElement('div');
+    card.className='card';
+    card.innerHTML=`<div class="thumb" style="padding:0;overflow:hidden"><img src="${ev.target.result}" style="width:100%;height:100%;object-fit:cover"/></div><div class="card-body"><h3>New Project</h3><p>Edit this description.</p><a href="#" class="card-link">View →</a></div>`;
+    document.getElementById('projectGrid').insertBefore(card,document.querySelector('.upload-card'));
+  };
+  r.readAsDataURL(file);
+}
+</script>
+</body>
+</html>
